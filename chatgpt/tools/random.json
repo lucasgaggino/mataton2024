@@ -1,0 +1,33 @@
+[
+    {
+      "type": "function",
+      "function": {
+        "name": "get_current_weather",
+        "description": "Get the current weather in a given latitude and longitude",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "string",
+              "description": "The latitude of a place"
+            },
+            "longitude": {
+              "type": "string",
+              "description": "The longitude of a place"
+            }
+          },
+          "required": ["latitude", "longitude"]
+        }
+      }
+    },
+    {
+        "type": "function",
+        "function": {
+          "name": "get_pc_data",
+          "description": "Get the current performance data of a PC:CPU Usage,Memory Usage,Network Transmitted,Network Received,Memory Usage Percentage",
+          "parameters": {
+            "type": "object"
+          }
+        }
+      }
+  ]
