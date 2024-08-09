@@ -27,4 +27,4 @@ def get_pc_data():
     for name, query in queries.items():
         result = query_prometheus(query)
         response.append({name:result})
-    return response
+    return json.dumps(response)

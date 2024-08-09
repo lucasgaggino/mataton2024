@@ -6,6 +6,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import random
 
+from tools.tools_functions import get_pc_data
 
 # Load the API key from the .env file
 
@@ -48,6 +49,7 @@ def run_conversation(content,tools=None):
 
         available_functions = {
             "get_current_weather": get_current_weather,
+            "get_pc_data": get_pc_data,
         }
         for tool_call in tool_calls:
             print(f"Function: {tool_call.function.name}")
@@ -55,10 +57,13 @@ def run_conversation(content,tools=None):
             function_name = tool_call.function.name
             function_to_call = available_functions[function_name]
             function_args = json.loads(tool_call.function.arguments)
-            function_response = function_to_call(
-                latitude=function_args.get("latitude"),
-                longitude=function_args.get("longitude"),
-                )
+            if function_name == "get_current_weather":
+                function_response = function_to_call(
+                    latitude=function_args.get("latitude"),
+                    longitude=function_args.get("longitude"),
+                    )
+            elif function_name == "get_pc_data":
+                function_response = function_to_call()
             print(f"API: {function_response}")
             messages.append(
             {
@@ -78,6 +83,7 @@ def run_conversation(content,tools=None):
 
 if __name__ == "__main__":
     question = "Should i wear a winter jacket in Buenos Aires today?"
+    question= "What's my pc total memory ?"
     response = run_conversation(question,tools=tools)
     print(question)
     for chunk in response:

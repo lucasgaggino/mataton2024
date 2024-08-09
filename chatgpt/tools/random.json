@@ -25,9 +25,7 @@
         "function": {
           "name": "get_pc_data",
           "description": "Get the current performance data of a PC:CPU Usage,Memory Usage,Network Transmitted,Network Received,Memory Usage Percentage",
-          "parameters": {
-            "type": "object"
-          }
+          "parameters": null
         }
       }
   ]
