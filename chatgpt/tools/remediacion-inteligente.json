@@ -1,0 +1,53 @@
+[
+    {
+        "type": "function",
+        "function": {
+          "name": "remediation_action_restart_interface",
+          "description": "Get the command sequence to restart the interface of a given device",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "device_name": {
+                "type": "string",
+                "description": "The name of the device"
+              }
+            },
+            "required": ["device_name"]
+          }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+          "name": "remediation_action_restart_device",
+          "description": "Get the command sequence to restart a given device",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "device_name": {
+                "type": "string",
+                "description": "The name of the device"
+              }
+            },
+            "required": ["device_name"]
+          }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+          "name": "remediation_action_change_bsp_configuration",
+          "description": "Get the command sequence to change the Board Support Package configuration a given device",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "device_name": {
+                "type": "string",
+                "description": "The name of the device"
+              }
+            },
+            "required": ["device_name"]
+          }
+        }
+    }
+  ]

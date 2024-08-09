@@ -28,3 +28,35 @@ def get_pc_data():
         result = query_prometheus(query)
         response.append({name:result})
     return json.dumps(response)
+
+DEFAULT_DEVICE_NAME = "Cisco Router Model IOS"
+DEFAULT_BOOT_COMMAND = "flash:/cisco-ios-image.bin" 
+DEFAULT_INTERFACE_NAME = "GigabitEthernet0/1"
+def remediation_action_restart_interface(device_name: str) -> str:
+    return
+f"""
+enable
+configure terminal
+interface {DEFAULT_INTERFACE_NAME}
+shutdown
+no shutdown
+exit
+exit
+write memory
+"""
+
+def remediation_action_restart_device(device_name: str) -> str:
+    return
+"""
+enable
+reload in 0
+"""
+def remediation_action_change_bsp_configuration(device_name: str) -> str:
+    return 
+f"""
+enable
+configure terminal
+boot system {DEFAULT_BOOT_COMMAND}
+exit
+write memory
+"""
