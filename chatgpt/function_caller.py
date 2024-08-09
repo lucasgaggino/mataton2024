@@ -83,7 +83,7 @@ def run_conversation(content,tools=None):
 
 if __name__ == "__main__":
     question = "Should i wear a winter jacket in Buenos Aires today?"
-    question= "What's my pc total memory ?"
+    #question= "What's my pc total memory ?"
     response = run_conversation(question,tools=tools)
     print(question)
     for chunk in response:
