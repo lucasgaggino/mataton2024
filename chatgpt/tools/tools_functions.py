@@ -1,7 +1,12 @@
 
 import requests
 import json
+from dotenv import load_dotenv
+import os
 
+
+KEY_PATH = "./keys.env"
+load_dotenv(dotenv_path=KEY_PATH)
 
 def query_prometheus(query, prometheus_url='http://localhost:9090'):
     url = f"{prometheus_url}/api/v1/query"
@@ -152,3 +157,31 @@ Syslog logging: enabled (0 messages dropped, 0 flushes, 0 overruns)
      %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down
 """
 
+
+
+def send_command( command: str) -> str:
+    api_key = os.getenv("SLF_OPENSTACK_DEMO01_API_KEY")
+    url = "https://demo01.iquall.net/demo01/api/v2/serverlessfunctions/namespace/7wk-g7p-t2i/function/send_command/env/sandbox"
+    headers = {
+        "accept": "application/json",
+        "apikey": api_key,
+        "Content-Type": "application/json"
+    }
+    payload = {"command": command}
+
+    cookie_name= os.getenv("DEMO01_COOKIE_NAME")
+    cookie_value= os.getenv("DEMO01_COOKIE_VALUE")
+    cookies = {
+        cookie_name: cookie_value
+    }
+
+    # Make the POST request
+    response = requests.post(url, headers=headers, json=payload, cookies=cookies)
+
+    # Print the response
+    #print("Status Code:", response.status_code)
+    #print("Response Body:", response.json())
+    return json.dumps(response.json())
+
+def end_chat():
+    return "Goodbye!"

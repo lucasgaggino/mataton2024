@@ -8,13 +8,13 @@ load_dotenv(dotenv_path=KEY_PATH)
 
 
 api_key = os.getenv("SLF_OPENSTACK_DEMO01_API_KEY")
-url = "https://demo01.iquall.net/demo01/api/v2/serverlessfunctions/namespace/7wk-g7p-t2i/function/create_instance/env/sandbox"
+url = "https://demo01.iquall.net/demo01/api/v2/serverlessfunctions/namespace/7wk-g7p-t2i/function/send_command/env/sandbox"
 headers = {
     "accept": "application/json",
     "apikey": api_key,
     "Content-Type": "application/json"
 }
-payload = {"asas": "asas"}
+payload = {}
 
 cookie_name= os.getenv("DEMO01_COOKIE_NAME")
 cookie_value= os.getenv("DEMO01_COOKIE_VALUE")

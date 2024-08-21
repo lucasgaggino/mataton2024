@@ -1,0 +1,2 @@
+=== Conversation Started ===
+User: Does this Cisco router have any issues? used the tools function to run the commands you think are necessary to diagnose the issue. Add to the diagnosis the description of the interfaces with problems

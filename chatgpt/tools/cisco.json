@@ -1,0 +1,27 @@
+[
+    {
+        "type": "function",
+        "function": {
+          "name": "send_command",
+          "description": "Function to send a command to a Cisco device, and return the output",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "command to be executed in Cisco IOS XE Software, Version 16.06.06"
+              }
+            },
+            "required": ["command"]
+          }
+        }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "end_chat",
+        "description": "Function to be called when you think the chat is over",
+        "parameters": null
+      }
+    }
+  ]

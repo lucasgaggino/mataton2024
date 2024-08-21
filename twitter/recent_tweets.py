@@ -12,7 +12,11 @@ search_url = "https://api.twitter.com/2/tweets/search/recent"
 
 # Optional params: start_time,end_time,since_id,until_id,max_results,next_token,
 # expansions,tweet.fields,media.fields,poll.fields,place.fields,user.fields
-query_params = {'query': '(from:elonmusk)','tweet.fields': 'author_id'}
+query_params = {
+    'query': '(from:elonmusk -is:retweet)',
+    'tweet.fields': 'author_id,conversation_id,created_at,entities,geo,id,in_reply_to_user_id,lang,public_metrics,possibly_sensitive,referenced_tweets,reply_settings,source,text,withheld'
+}
+
 
 
 def bearer_oauth(r):
